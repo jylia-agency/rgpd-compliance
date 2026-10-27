@@ -10,6 +10,7 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), ver
 - Bancs de test : `.env.example` versionnés (exception dans `.gitignore`), modules manquants du projet sécurisé ajoutés, cas du schéma privé rendu explicite (REVOKE).
 - Constats attendus précisés : envoi au LLM scindé (minimisation / sous-traitance et transferts), éléments attendus sans constat dans le projet sécurisé.
 - README : environnement sans accès réseau sortant, niveau de confiance ; SKILL.md : mention conditionnelle du DPO.
+- Projet sécurisé : route d'inscription alignée sur le schéma (Supabase Auth + table `profiles`), preuve du consentement datée et versionnée.
 
 ## [0.3.0] - 2026-10-27
 
@@ -44,7 +45,7 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), ver
 - Registre en deux parties (responsable art. 30.1, sous-traitant art. 30.2) ; section « Consentement, traceurs et prospection » dans la checklist.
 
 ### Modifié
-- Corrections juridiques : art. 12.3 (délai d'un mois prorogeable), art. 20 (portabilité conditionnelle), art. 30.1/30.2, art. 33.5, art. 35.7, art. 37.1.a, art. 45, art. 8 (seuil national), art. 27.
+- Corrections juridiques : art. 12.3 (délai d'un mois prorogeable), art. 20 (portabilité conditionnelle), art. 30.1/30.2, art. 33.5, art. 35.7, art. 37.1.a, art. 45, art. 8 (seuil national), art[...]
 - Modèle d'AIPD structuré selon l'art. 35.7 ; seuil de deux critères, consultation préalable (art. 36) et avis du DPO.
 - Rapport d'audit : rôle de l'organisation, droit national appliqué, traceurs et prospection.
 - Formulations neutralisées : lecture seule générique, README et CONTRIBUTING indépendants d'un agent particulier.

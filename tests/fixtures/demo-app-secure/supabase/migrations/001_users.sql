@@ -4,6 +4,7 @@ create table public.profiles (
   id uuid primary key references auth.users (id) on delete cascade,
   display_name text,
   birth_year int,
+  newsletter_opt_in boolean not null default false,
   created_at timestamptz not null default now()
 );
 
