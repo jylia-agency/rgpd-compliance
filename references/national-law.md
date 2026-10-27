@@ -10,7 +10,7 @@ Pour un autre État membre, indiquer le thème concerné et la mention « à vé
 
 | Texte | Sujet | Traduction technique |
 |---|---|---|
-| [Directive 2002/58/CE](https://eur-lex.europa.eu/eli/dir/2002/58/oj), art. 5.3 | Stockage ou accès à des informations dans le terminal de l'utilisateur (cookies, traceurs, SDK) | Consentement préalable, sauf si le traceur est strictement nécessaire au service demandé |
+| [Directive 2002/58/CE](https://eur-lex.europa.eu/eli/dir/2002/58/oj), art. 5.3 | Stockage ou accès à des informations dans le terminal de l'utilisateur (cookies, traceurs, SDK) | Consentement préalable, sauf si le traceur a pour seule finalité de permettre la transmission d'une communication ou est strictement nécessaire au service expressément demandé par l'utilisateur |
 | [Directive 2002/58/CE](https://eur-lex.europa.eu/eli/dir/2002/58/oj), art. 13 | Prospection par communications électroniques | Vérifier le recueil du consentement et la possibilité de refus selon le droit national |
 
 ## Repères français (droit national par défaut)

@@ -1,6 +1,6 @@
 # rgpd-compliance – Skill d'audit RGPD pour agents de code IA
 
-Skill open source (`rgpd-audit`) au format ouvert Agent Skills (`SKILL.md`), utilisable notamment avec [Claude Code](https://docs.claude.com/en/docs/claude-code/skills), [OpenAI Codex](https://developers.openai.com/codex/skills) et tout agent compatible, pour **auditer techniquement un projet** au regard de la protection des données personnelles : identification des données, cartographie des traitements, détection des risques, recommandations de correction et génération de rapport.
+Skill open source (`rgpd-audit`) au format ouvert Agent Skills (`SKILL.md`), utilisable avec tout agent compatible, pour **auditer techniquement un projet** au regard de la protection des données personnelles : identification des données, cartographie des traitements, détection des risques, recommandations de correction et génération de rapport.
 
 > ⚠️ Outil d'aide à l'audit technique. Il ne constitue **ni une certification de conformité RGPD, ni un avis juridique**.
 
@@ -30,52 +30,38 @@ Chaque constat comporte : identifiant (`RGPD-NNN`), description, fichier/lignes,
 
 ## Prérequis
 
-- Un agent compatible Agent Skills (ex. Claude Code ou Codex)
+- Un agent compatible Agent Skills
 - Un projet à auditer, accessible localement
 - Aucune dépendance supplémentaire
 
 ## Installation
 
-Un Skill est un dossier contenant un `SKILL.md`. Le dossier doit porter le nom du Skill (`rgpd-audit`). Documentation : [Claude Code](https://docs.claude.com/en/docs/claude-code/skills), [OpenAI Codex](https://developers.openai.com/codex/skills).
-
-### Claude Code
-
-Tous vos projets (niveau utilisateur) :
+Clonez le dépôt dans le dossier de skills de votre agent, sous le nom `rgpd-audit`.
 ```bash
-git clone https://github.com/jylia-agency/rgpd-compliance.git ~/.claude/skills/rgpd-audit
+git clone https://github.com/jylia-agency/rgpd-compliance.git <dossier-skills-de-votre-agent>/rgpd-audit
 ```
 
-Un seul projet :
+| Agent | Dossier utilisateur | Dossier projet | Invocation explicite | Renfort de la lecture seule |
+|---|---|---|---|---|
+| Claude Code | `~/.claude/skills/rgpd-audit` | `.claude/skills/rgpd-audit` | `/rgpd-audit` | champs `allowed-tools` / `disallowed-tools` du `SKILL.md` |
+| OpenAI Codex | `~/.agents/skills/rgpd-audit` | `.agents/skills/rgpd-audit` | `$rgpd-audit` | mode bac à sable lecture seule (`codex --sandbox read-only`) |
+| Autre agent compatible Agent Skills | voir sa documentation | voir sa documentation | voir sa documentation | consignes du skill et bac à sable de l'agent |
+
+### Plusieurs agents sur la même machine
+
+Clonez une seule fois, puis créez un lien symbolique, par exemple :
 ```bash
-git clone https://github.com/jylia-agency/rgpd-compliance.git .claude/skills/rgpd-audit
-```
-
-Invocation automatique selon votre demande, ou explicite via `/rgpd-audit`. La lecture seule est imposée par `allowed-tools` du `SKILL.md`. Redémarrez l'agent si nécessaire.
-
-### OpenAI Codex
-
-Tous vos projets (niveau utilisateur) :
-```bash
-git clone https://github.com/jylia-agency/rgpd-compliance.git ~/.agents/skills/rgpd-audit
-```
-
-Un seul projet :
-```bash
-git clone https://github.com/jylia-agency/rgpd-compliance.git .agents/skills/rgpd-audit
-```
-
-Invocation automatique selon votre demande, ou explicite via `$rgpd-audit` (ou `/skills` pour lister les skills). Pour la lecture seule, lancer de préférence `codex --sandbox read-only`.
-
-### Utiliser les deux agents
-
-Cloner une seule fois dans `~/.agents/skills/rgpd-audit`, puis créer un lien symbolique :
-```bash
+mkdir -p ~/.claude/skills
 ln -s ~/.agents/skills/rgpd-audit ~/.claude/skills/rgpd-audit
 ```
 
+### Agent sans prise en charge des skills
+
+Le contenu de `SKILL.md` et du dossier `references/` peut être fourni comme instructions à tout LLM ayant accès au code à auditer.
+
 ## Exemples de commandes
 
-Le Skill est invoqué automatiquement selon votre demande, ou explicitement avec la syntaxe propre à chaque agent (`/rgpd-audit` pour Claude Code, `$rgpd-audit` pour Codex).
+Le Skill est invoqué automatiquement selon votre demande, ou explicitement avec la syntaxe indiquée dans le tableau d'installation.
 
 | Besoin | Exemple |
 |---|---|
@@ -99,7 +85,7 @@ Extrait (voir [examples/example-audit.md](examples/example-audit.md)) :
 ## Comportement et sécurité
 
 - **Lecture seule par défaut** (outils de lecture et de recherche uniquement).
-- Note : hors Claude Code, la lecture seule repose sur les consignes du skill et sur le bac à sable de l'agent.
+- La lecture seule repose sur les consignes du skill ; selon l'agent, elle est renforcée par des champs de configuration ou un mode bac à sable (voir le tableau d'installation).
 - Aucune modification, suppression ou envoi de données sans autorisation explicite.
 - Secrets et données personnelles masqués dans les rapports.
 - Jamais de déclaration de conformité intégrale.
@@ -126,8 +112,6 @@ examples/example-audit.md Exemple fictif
 - CNIL : <https://www.cnil.fr>
 - RGPD : <https://eur-lex.europa.eu/eli/reg/2016/679/oj>
 - CEPD / EDPB : <https://www.edpb.europa.eu>
-- Skills Claude Code : <https://docs.claude.com/en/docs/claude-code/skills>
-- Skills OpenAI Codex : <https://developers.openai.com/codex/skills>
 
 ## Contribuer
 

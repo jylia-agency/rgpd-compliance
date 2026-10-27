@@ -30,6 +30,8 @@ Choisir la partie A, la partie B ou les deux selon le rôle de l'organisation (�
 
 ## B. Registre du sous-traitant (art. 30.2)
 
+**Sous-traitant** : [à compléter] · **Représentant dans l'UE (art. 27)** : [à compléter, le cas échéant] · **DPO / contact** : [à compléter]
+
 Un tableau par client (responsable de traitement).
 
 ### Client n° 1 – [Nom]
