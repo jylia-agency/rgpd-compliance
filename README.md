@@ -36,7 +36,13 @@ Chaque constat comporte : identifiant (`RGPD-NNN`), description, fichier/lignes,
 
 ## Installation
 
-Clonez le dépôt dans le dossier de skills de votre agent, sous le nom `rgpd-audit`.
+### Téléchargement direct
+
+Chaque release fournit une archive `rgpd-audit-vX.Y.Z.zip` (onglet Releases), prête à importer : son dossier racine porte déjà le nom du skill (`rgpd-audit`) et elle ne contient que les fichiers nécessaires, sans les bancs de test. Utilisez de préférence cette archive plutôt que le bouton « Code > Download ZIP », dont le dossier s'appellerait `rgpd-compliance-…`.
+
+### Clonage
+
+Clonez le dépôt dans le dossier de skills de votre agent ; le dossier cible doit s'appeler `rgpd-audit`.
 ```bash
 git clone https://github.com/jylia-agency/rgpd-compliance.git <dossier-skills-de-votre-agent>/rgpd-audit
 ```

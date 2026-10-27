@@ -9,6 +9,7 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), ver
 
 ## [0.3.2] - 2026-10-27
 ### Ajouté
+- Archive de release `rgpd-audit-vX.Y.Z.zip` prête à importer (dossier racine `rgpd-audit`, sans bancs de test ni fichiers de développement, via `.gitattributes`).
 - CI de validation structurelle (`validate.yml`) : frontmatter, liens, tirets cadratins, motifs de secrets, cohérence des `EXPECTED.md` et des bancs de test.
 - Dossier `tests/results/` et modèle de consignation des audits réellement exécutés.
 - Cas de test `admin-panel.tsx` : clé `service_role` utilisée côté client.

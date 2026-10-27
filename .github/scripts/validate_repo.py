@@ -2,7 +2,10 @@
 """Validate repository structure and expected test fixtures."""
 
 import re
+import subprocess
 import sys
+import tarfile
+import io
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
@@ -163,12 +166,31 @@ def validate_alias_imports():
                     fail(relative, f"import alias @/{module} introuvable")
 
 
+def validate_release_archive():
+    result = subprocess.run(
+        ["git", "archive", "--format=tar", "--prefix=rgpd-audit/", "HEAD"],
+        cwd=ROOT,
+        capture_output=True,
+    )
+    if result.returncode != 0:
+        fail("git archive", result.stderr.decode("utf-8", errors="replace").strip())
+        return
+    with tarfile.open(fileobj=io.BytesIO(result.stdout), mode="r:") as archive:
+        names = archive.getnames()
+    if "rgpd-audit/SKILL.md" not in names:
+        fail("archive", "rgpd-audit/SKILL.md absent de l'archive")
+    for name in names:
+        if name.startswith(("rgpd-audit/tests/", "rgpd-audit/.github/")):
+            fail("archive", f"chemin interdit dans l'archive : {name}")
+
+
 def main():
     validate_skill_frontmatter()
     validate_markdown()
     validate_secret_patterns()
     validate_expected_files()
     validate_alias_imports()
+    validate_release_archive()
     if ERRORS:
         print("\n".join(ERRORS), file=sys.stderr)
         return 1
