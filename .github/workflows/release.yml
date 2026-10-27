@@ -53,7 +53,9 @@ jobs:
           ' CHANGELOG.md > "$notes"
 
           git tag -a "$tag" -m "$tag" "$GITHUB_SHA"
-          gh release create "$tag" --title "$tag" --notes-file "$notes" --target "$GITHUB_SHA"
+          archive="rgpd-audit-${tag}.zip"
+          git archive --format=zip --prefix=rgpd-audit/ -o "$archive" "$GITHUB_SHA"
+          gh release create "$tag" "$archive" --title "$tag" --notes-file "$notes" --target "$GITHUB_SHA"
 
           {
             echo "## Version publiée : ${tag}"
