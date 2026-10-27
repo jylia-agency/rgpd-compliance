@@ -61,6 +61,11 @@ Pour chaque point : ✅ constaté OK · ❌ constat · ❓ non vérifiable. Fich
 ## Secrets et configuration
 - [ ] Aucun secret dans le dépôt/historique ; `.env` ignoré par git ; secrets gérés par coffre/variables CI
 - [ ] Pas de secret dans le bundle client (`NEXT_PUBLIC_*`, `VITE_*`, `REACT_APP_*`)
+- Pour une variable destinée à un secret (ex. clé `service_role`), distinguer :
+  - valeur réelle de secret présente dans le dépôt ou son historique : Constat technique avéré, Critique (ne jamais reproduire la valeur) ;
+  - variable publique (`NEXT_PUBLIC_*`, `VITE_*`, `REACT_APP_*`) désignée pour un secret et référencée par du code exécuté côté client : Constat technique avéré, Critique, mécanisme d'exposition démontré (toute valeur affectée à la variable est publiée dans le code envoyé au navigateur) ; la valeur réellement utilisée en production reste à vérifier ;
+  - variable publique désignée pour un secret déclarée seulement dans un fichier d'exemple ou de configuration, sans usage côté client trouvé : Risque potentiel, gravité Élevée à Critique, confiance Moyenne ;
+  - une valeur d'exemple ou fictive ne prouve jamais une fuite ; c'est l'usage dans le code qui établit le mécanisme d'exposition.
 - [ ] `DEBUG` désactivé en production ; dépendances à jour (audits de dépendances tels que `npm audit` ou `pip-audit` : à lancer uniquement sur autorisation explicite de l'utilisateur)
 
 ## Journalisation et traçabilité

@@ -78,11 +78,13 @@ Deux mini-projets fictifs (Next.js + Supabase, structure identique) permettent d
 
 | Projet | Contenu | Résultats attendus |
 |---|---|---|
-| [tests/fixtures/demo-app-vulnerable/](tests/fixtures/demo-app-vulnerable/) | Défauts volontaires | [EXPECTED.md](tests/fixtures/demo-app-vulnerable/EXPECTED.md) |
-| [tests/fixtures/demo-app-secure/](tests/fixtures/demo-app-secure/) | Corrections correspondantes | [EXPECTED.md](tests/fixtures/demo-app-secure/EXPECTED.md) |
+| [Projet vulnérable](tests/fixtures/demo-app-vulnerable/src/components/admin-panel.tsx) | Défauts volontaires | [EXPECTED.md](tests/fixtures/demo-app-vulnerable/EXPECTED.md) |
+| [Projet sécurisé](tests/fixtures/demo-app-secure/src/lib/supabase-server.ts) | Corrections correspondantes | [EXPECTED.md](tests/fixtures/demo-app-secure/EXPECTED.md) |
 
 - **Faux négatifs** : un défaut du projet vulnérable absent du rapport (ou classé trop bas) signale un défaut de détection.
 - **Faux positifs** : un constat technique avéré sur le projet sécurisé signale un excès de zèle du skill.
+- Les résultats des audits réellement exécutés sont consignés dans [`tests/results/`](tests/results/README.md).
+- La fiabilité du skill se mesure à partir de résultats réellement consignés, pas des seuls scénarios.
 
 ## Exemple de rapport
 
@@ -109,10 +111,12 @@ Extrait (voir [examples/example-audit.md](examples/example-audit.md)) :
 
 ```text
 SKILL.md                 Définition du Skill
+.github/                 Workflows de validation et de publication
 references/              Principes RGPD, droit national/ePrivacy, CNIL, sécurité, privacy by design, IA (volet RGPD)
 templates/               Rapport, registre, analyse de risques, plan de remédiation
 examples/example-audit.md Exemple fictif
 tests/fixtures/  Projets fictifs (vulnérable et sécurisé) pour tester le skill
+tests/results/  Résultats des audits réellement exécutés
 ```
 
 ## Limites

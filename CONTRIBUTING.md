@@ -15,6 +15,7 @@ Merci de votre intérêt ! Ce Skill est un outil d'aide à l'audit technique, pa
 
 ## Processus
 
+- La CI `validate.yml` doit être verte avant toute fusion. Toute modification de la méthodologie ou des références s'accompagne, si possible, d'un résultat d'exécution réelle consigné dans `tests/results/`.
 - Ouvrez une issue pour discuter d'un changement important.
 - Une branche par sujet, une Pull Request décrivant la source officielle utilisée.
 - Mettez à jour `CHANGELOG.md`.
