@@ -4,6 +4,15 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), ver
 
 ## [Non publié]
 
+## [0.2.1] - 2026-10-27
+
+### Corrigé
+- Lecture seule renforcée via `disallowed-tools` pour les agents qui le prennent en charge (`allowed-tools` pré-autorise mais ne restreint pas).
+- Installation présentée en un tableau unique multi-agents, avec usage possible par tout LLM ayant accès au code.
+- Règle de citation des textes nationaux (Légifrance) et détermination préalable de l'État membre.
+- Registre du sous-traitant : identification du sous-traitant (art. 30.2.a).
+- Exemptions ePrivacy art. 5.3 complétées ; rôle « responsable conjoint » dans le rapport.
+
 ## [0.2.0] - 2026-10-27
 
 ### Ajouté

@@ -6,7 +6,7 @@
 | **Version du rapport** | 1.0 |
 | **Commit / version analysé(e)** | [hash] |
 | **Auditeur** | Skill `rgpd-audit` exécuté par [agent utilisé, ex. Claude Code, Codex], analyse statique, lecture seule |
-| **Rôle de l'organisation** | [responsable / sous-traitant], à confirmer |
+| **Rôle de l'organisation** | [responsable / responsable conjoint / sous-traitant], à confirmer |
 | **Droit national appliqué** | France par défaut, à confirmer |
 | **Périmètre** | [dépôts, dossiers, environnements analysés] |
 | **Hors périmètre / non consulté** | [production, données réelles, contrats, politique de confidentialité…] |
