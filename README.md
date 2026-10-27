@@ -102,7 +102,8 @@ Extrait (voir [examples/example-audit.md](examples/example-audit.md)) :
 - Secrets et données personnelles masqués dans les rapports.
 - Jamais de déclaration de conformité intégrale.
 - Pas de qualification juridique : le skill décrit des faits techniques et des risques, jamais un verdict (« violation », « non conforme », « illégal »).
-- Exécution réelle en lecture seule : le skill ne modifie rien, mais ce que l'agent peut réellement faire dépend des permissions que vous lui accordez ; limitez-les (bac à sable, outils autorisés) pour un audit.
+- Exécution réelle en lecture seule : ce que l'agent peut faire dépend des permissions que vous lui accordez ; pour un audit, utilisez un environnement en lecture seule, sans accès réseau sortant non nécessaire (bac à sable, outils autorisés).
+- Chaque constat indique un niveau de confiance (Élevé, Moyen, Faible) et une méthode de vérification.
 
 ## Structure du dépôt
 

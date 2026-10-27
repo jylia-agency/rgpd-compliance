@@ -5,3 +5,4 @@ node_modules/
 .env.*
 # Rapports d'audit générés localement (peuvent contenir des informations sensibles)
 rgpd-audit-output/
+!tests/fixtures/**/.env.example

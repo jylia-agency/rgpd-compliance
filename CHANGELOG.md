@@ -4,6 +4,13 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), ver
 
 ## [Non publié]
 
+## [0.3.1] - 2026-10-27
+
+### Corrigé
+- Bancs de test : `.env.example` versionnés (exception dans `.gitignore`), modules manquants du projet sécurisé ajoutés, cas du schéma privé rendu explicite (REVOKE).
+- Constats attendus précisés : envoi au LLM scindé (minimisation / sous-traitance et transferts), éléments attendus sans constat dans le projet sécurisé.
+- README : environnement sans accès réseau sortant, niveau de confiance ; SKILL.md : mention conditionnelle du DPO.
+
 ## [0.3.0] - 2026-10-27
 
 ### Ajouté
