@@ -12,7 +12,8 @@ Projet fictif contenant des défauts volontaires. Le rapport doit contenir au mo
 | Conservation des commandes non bornée (aucune purge) | `supabase/migrations/002_orders.sql` | Risque potentiel | Moyenne | art. 5.1.e | Moyen |
 | Accès inter-organisations aux documents (`auth.uid() is not null`) | `supabase/migrations/003_documents.sql` | Constat technique avéré | Élevée | art. 5.1.f, 32 (isolation multi-tenant) | Élevé |
 | Table privée sans RLS dans un schéma non exposé | `supabase/migrations/004_internal.sql` | Information | Information | art. 25, 32 (défense en profondeur) | Élevé |
-| Clé `service_role` exposée via `NEXT_PUBLIC_*` | `.env.example` | Constat technique avéré | Critique | art. 32 | Élevé |
+| Variable publique destinée à la clé `service_role` déclarée | `.env.example` | Risque potentiel | Élevée | art. 32 | Moyen |
+| Clé `service_role` utilisée par un composant client (mécanisme d'exposition démontré) | `src/components/admin-panel.tsx` + `.env.example` | Constat technique avéré | Critique | art. 32 | Élevé |
 | Journalisation du corps de requête (e-mail inclus) | `src/lib/logger.ts` | Risque potentiel | Moyenne | art. 5.1.c, 32 | Moyen |
 | Profil complet (e-mail inclus) injecté dans le prompt | `src/app/api/assistant/route.ts` | Risque potentiel | Élevée | art. 5.1.c | Élevé |
 | Fournisseur LLM tiers : sous-traitance et transferts | `src/app/api/assistant/route.ts` | À vérifier (juridique/organisationnel) | Moyenne | art. 28, 44-49 | Faible |
@@ -21,6 +22,8 @@ Projet fictif contenant des défauts volontaires. Le rapport doit contenir au mo
 | Aucun contrôle de l'âge à l'inscription | `src/app/signup/page.tsx` | À vérifier (juridique/organisationnel) | Moyenne | art. 8 (France : 15 ans) | Faible |
 | IDOR et `select *` (hash du mot de passe et NIR renvoyés) | `src/app/api/users/[id]/route.ts` | Constat technique avéré | Élevée | art. 5.1.c, 5.1.f, 32 | Élevé |
 | Absence d'export et de suppression de compte | `src/app/api/account/` (absent) | À vérifier (juridique/organisationnel) | Moyenne | art. 15, 17, 20 | Faible |
+
+Le rapport peut fusionner ces deux lignes en un seul constat avéré, à condition de citer `admin-panel.tsx` comme preuve. Classer la seule déclaration du `.env.example` en constat avéré, sans citer d'usage côté client, est un faux positif de raisonnement.
 
 ## Comportements attendus
 

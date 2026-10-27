@@ -7,6 +7,14 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), ver
 ### Ajouté
 - Workflow `release.yml` : création automatique du tag et de la release à partir du CHANGELOG.
 
+## [0.3.2] - 2026-10-27
+### Ajouté
+- CI de validation structurelle (`validate.yml`) : frontmatter, liens, tirets cadratins, motifs de secrets, cohérence des `EXPECTED.md` et des bancs de test.
+- Dossier `tests/results/` et modèle de consignation des audits réellement exécutés.
+- Cas de test `admin-panel.tsx` : clé `service_role` utilisée côté client.
+### Modifié
+- Secrets : classification selon l'usage côté client ; une variable déclarée dans un fichier d'exemple sans usage est un risque potentiel, pas un constat avéré.
+
 ## [0.3.1] - 2026-10-27
 
 ### Corrigé

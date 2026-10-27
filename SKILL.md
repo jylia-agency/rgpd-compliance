@@ -83,7 +83,7 @@ Après que l'utilisateur a validé et appliqué (ou autorisé l'application de) 
 
 ## Adaptation à la stack
 
-- **React/Next.js** : variables `NEXT_PUBLIC_*` (secrets exposés), routes API/Server Actions sans contrôle d'accès, props transmises du serveur au client, trackers tiers, cookies (flags `HttpOnly`, `Secure`, `SameSite`), localStorage contenant des données personnelles.
+- **React/Next.js** : variables `NEXT_PUBLIC_*` destinées à des secrets (classer selon leur usage côté client, voir `references/security-checklist.md`), routes API/Server Actions sans contrôle d'accès, props transmises du serveur au client, trackers tiers, cookies (flags `HttpOnly`, `Secure`, `SameSite`), localStorage contenant des données personnelles.
 - **Node.js** : validation des entrées, middlewares d'authentification, logs (`console.log` de payloads), ORM (`select` explicite), helmet/CORS.
 - **Python** (Django, FastAPI, Flask) : sérialiseurs exposant tous les champs, `DEBUG`, logs, hachage, permissions par vue.
 - **PostgreSQL** : rôles/GRANT, RLS, colonnes sensibles, chiffrement, journaux de requêtes, politique de purge.
