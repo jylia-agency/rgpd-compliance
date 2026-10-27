@@ -26,7 +26,7 @@ Technologies : React, Next.js, Node.js, Python, PostgreSQL, Supabase et autres s
 
 Découverte → Identification des données → Cartographie → Sécurité → Risques → Classification par gravité → Corrections → Rapport → Vérification après validation.
 
-Chaque constat comporte : identifiant (`RGPD-NNN`), description, fichier/lignes, éléments observés, principe RGPD, gravité, recommandation, statut. Les constats sont distingués en **non-conformités établies**, **risques potentiels** et **points à vérifier juridiquement/organisationnellement**.
+Chaque constat comporte : identifiant (`RGPD-NNN`), description, fichier/lignes, éléments observés, principe RGPD, gravité, recommandation, statut. Les constats sont distingués en **constats techniques avérés**, **risques potentiels** et **points à vérifier juridiquement/organisationnellement**.
 
 ## Prérequis
 
@@ -72,13 +72,25 @@ Le Skill est invoqué automatiquement selon votre demande, ou explicitement avec
 | Registre | `Génère un projet de registre des traitements` |
 | Vérification | `Vérifie les corrections des constats RGPD-001 à RGPD-003` |
 
+## Tester le skill
+
+Deux mini-projets fictifs (Next.js + Supabase, structure identique) permettent de tester le skill :
+
+| Projet | Contenu | Résultats attendus |
+|---|---|---|
+| [tests/fixtures/demo-app-vulnerable/](tests/fixtures/demo-app-vulnerable/) | Défauts volontaires | [EXPECTED.md](tests/fixtures/demo-app-vulnerable/EXPECTED.md) |
+| [tests/fixtures/demo-app-secure/](tests/fixtures/demo-app-secure/) | Corrections correspondantes | [EXPECTED.md](tests/fixtures/demo-app-secure/EXPECTED.md) |
+
+- **Faux négatifs** : un défaut du projet vulnérable absent du rapport (ou classé trop bas) signale un défaut de détection.
+- **Faux positifs** : un constat technique avéré sur le projet sécurisé signale un excès de zèle du skill.
+
 ## Exemple de rapport
 
 Extrait (voir [examples/example-audit.md](examples/example-audit.md)) :
 
 | ID | Gravité | Nature | Localisation | Constat |
 |---|---|---|---|---|
-| RGPD-001 | Critique | Non-conformité établie | `supabase/migrations/002_orders.sql:1-18` | Table `orders` sans RLS |
+| RGPD-001 | Critique | Constat technique avéré | `supabase/migrations/002_orders.sql:1-18` | Table `orders` accessible sans authentification |
 | RGPD-002 | Élevée | Risque potentiel | `supabase/migrations/002_orders.sql` | Conservation non bornée |
 | RGPD-003 | Élevée | À vérifier | `src/app/api/assistant/route.ts:22-40` | Données envoyées à un LLM tiers |
 
@@ -89,6 +101,8 @@ Extrait (voir [examples/example-audit.md](examples/example-audit.md)) :
 - Aucune modification, suppression ou envoi de données sans autorisation explicite.
 - Secrets et données personnelles masqués dans les rapports.
 - Jamais de déclaration de conformité intégrale.
+- Pas de qualification juridique : le skill décrit des faits techniques et des risques, jamais un verdict (« violation », « non conforme », « illégal »).
+- Exécution réelle en lecture seule : le skill ne modifie rien, mais ce que l'agent peut réellement faire dépend des permissions que vous lui accordez ; limitez-les (bac à sable, outils autorisés) pour un audit.
 
 ## Structure du dépôt
 
@@ -97,6 +111,7 @@ SKILL.md                 Définition du Skill
 references/              Principes RGPD, droit national/ePrivacy, CNIL, sécurité, privacy by design, IA (volet RGPD)
 templates/               Rapport, registre, analyse de risques, plan de remédiation
 examples/example-audit.md Exemple fictif
+tests/fixtures/  Projets fictifs (vulnérable et sécurisé) pour tester le skill
 ```
 
 ## Limites
@@ -105,6 +120,7 @@ examples/example-audit.md Exemple fictif
 - Analyse statique : pas d'exécution, pas d'accès aux données de production.
 - Ne détermine pas les bases légales, les contrats de sous-traitance, les garanties de transfert, le besoin de DPO ou d'AIPD.
 - Sortie générée par un modèle d'IA : faux positifs/négatifs possibles, à relire par un humain.
+- Version récente : fiabilité à confirmer par les tests et par une relecture humaine.
 - Le droit et les recommandations évoluent : vérifier les sources officielles.
 
 ## Sources réglementaires

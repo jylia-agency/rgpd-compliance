@@ -39,7 +39,7 @@ Nature, portée, contexte et finalités du traitement ; données, personnes conc
 | R2 | Modification non désirée | | | | | | | |
 | R3 | Disparition de données | | | | | | | |
 
-Niveau = vraisemblance × gravité : 1-4 faible · 5-8 moyen · 9-16 élevé. Ce produit est une simplification : un risque de gravité 4 est prioritaire quelle que soit sa vraisemblance.
+Niveau = vraisemblance × gravité : 1-4 faible · 5-8 moyen · 9-16 élevé. Ce produit est une simplification : un risque de gravité 4 est prioritaire quelle que soit sa vraisemblance. Ce score est indicatif et sert d'aide à la décision : il ne constitue ni une qualification juridique ni une décision automatique de réaliser ou non une AIPD.
 
 ## 5. Mesures envisagées (art. 35.7.d)
 Mesures pour faire face aux risques, garanties, mesures de sécurité et mécanismes de protection : […]

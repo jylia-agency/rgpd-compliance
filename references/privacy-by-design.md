@@ -12,7 +12,7 @@ Source : [RGPD art. 25](https://eur-lex.europa.eu/eli/reg/2016/679/oj) ; lignes 
 | Pseudonymisation / anonymisation | Les identifiants directs sont-ils séparés ? | Tables d'analytics, jeux de test |
 | Séparation | Données sensibles isolées, accès restreint ? | Schémas/tables séparés, RLS |
 | Transparence | L'utilisateur voit-il quelles données sont collectées ? | Pages de profil, centre de confidentialité |
-| Contrôle | Les droits sont-ils exerçables en self-service ? | Export, suppression de compte |
+| Contrôle | Les droits sont-ils exerçables en self-service ? Le self-service est une bonne pratique, pas une obligation générale : son absence est « à vérifier » (processus manuel possible) | Export, suppression de compte |
 | Sécurité | Mesures proportionnées aux risques ? | Voir `security-checklist.md` |
 
 ## Patterns de correction

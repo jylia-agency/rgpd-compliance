@@ -11,19 +11,28 @@
 | **Périmètre** | [dépôts, dossiers, environnements analysés] |
 | **Hors périmètre / non consulté** | [production, données réelles, contrats, politique de confidentialité…] |
 
-> ⚠️ Cet audit technique automatisé ne constitue ni une certification de conformité ni un avis juridique. Il doit être complété par le responsable de traitement et, le cas échéant, le DPO.
+> ⚠️ Cet audit technique automatisé ne constitue ni une certification de conformité ni un avis juridique. Il doit être complété par le responsable de traitement et, le cas échéant, le DPO. Aucune qualification juridique n'est portée : les constats décrivent des faits techniques et des risques.
 
 ## 1. Synthèse
 
 - Stack : [frameworks, BDD, hébergement, services tiers]
 - Données personnelles identifiées : [catégories]
 
-| Gravité | Non-conformités établies | Risques potentiels | À vérifier (juridique/orga.) |
+| Gravité | Constats techniques avérés | Risques potentiels | À vérifier (juridique/orga.) |
 |---|---|---|---|
 | Critique | 0 | 0 | 0 |
 | Élevée | 0 | 0 | 0 |
 | Moyenne | 0 | 0 | 0 |
 | Faible | 0 | 0 | 0 |
+
+## Couverture de l'audit
+
+- Fichiers et zones analysés : [liste]
+- Éléments non consultés : [production, données réelles, contrats…]
+- Vérifications non réalisables par analyse statique : [exposition réelle, configuration hébergeur…]
+- Limites de confiance : [constats à confirmer, niveau de confiance Faible]
+
+L'absence de constat dans une zone non analysée ne signifie pas l'absence de risque.
 
 ## 2. Cartographie des traitements
 Voir [registre des traitements](processing-register.md) ou tableau résumé :
@@ -37,10 +46,14 @@ Voir [registre des traitements](processing-register.md) ou tableau résumé :
 ### RGPD-001 – [Titre]
 | Champ | Valeur |
 |---|---|
-| **Nature** | Non-conformité établie / Risque potentiel / À vérifier |
+| **Nature** | Constat technique avéré / Risque potentiel / À vérifier (juridique/organisationnel) |
 | **Gravité** | Critique / Élevée / Moyenne / Faible / Information |
 | **Localisation** | `chemin/fichier.ext:L10-L25` |
-| **Principe RGPD** | [ex. art. 32] |
+| **Exigence concernée** | [ex. art. 32] (point d'attention, jamais un manquement) |
+| **Exposition** | [qui peut accéder à quoi, dans quelles conditions, ou « non déterminée »] |
+| **Preuves** | `fichier:ligne` (valeurs sensibles masquées) |
+| **Niveau de confiance** | Élevé / Moyen / Faible |
+| **Méthode de vérification** | [comment le constat a été établi ou comment le confirmer] |
 | **Statut** | Ouvert |
 
 **Description** : …

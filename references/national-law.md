@@ -2,7 +2,7 @@
 
 Le RGPD laisse des marges aux États membres (par exemple l'âge du consentement numérique) et la directive ePrivacy est transposée dans chaque droit national. L'audit doit donc identifier le droit national applicable.
 
-**Détermination de l'État membre** : selon le lieu d'établissement de l'organisation ou le public ciblé par le service. Si ces éléments ne sont pas déterminables depuis le code, appliquer le défaut : **« droit national supposé : France, à confirmer »**.
+**Détermination de l'État membre** : selon le lieu d'établissement de l'organisation, le public ciblé par le service et la localisation des utilisateurs. Cette détermination peut être complexe (plusieurs établissements, utilisateurs dans plusieurs États) et nécessite une confirmation par le responsable de traitement. Si ces éléments ne sont pas déterminables depuis le code, appliquer le défaut : **« droit national supposé : France, à confirmer »**.
 
 Pour un autre État membre, indiquer le thème concerné et la mention « à vérifier selon le droit de [pays] », sans citer d'article dont tu n'es pas certain.
 

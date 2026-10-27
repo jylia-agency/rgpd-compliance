@@ -4,6 +4,22 @@ Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), ver
 
 ## [Non publié]
 
+## [0.3.0] - 2026-10-27
+
+### Ajouté
+- Bancs de test fictifs `tests/fixtures/demo-app-vulnerable/` et `tests/fixtures/demo-app-secure/` (Next.js + Supabase), avec `EXPECTED.md` (résultats attendus et mode d'emploi).
+- Champs de constat : exposition, preuves, niveau de confiance (Élevé/Moyen/Faible), méthode de vérification.
+- Section obligatoire « Couverture de l'audit » dans le rapport et l'exemple.
+- Règle « Pas de verdict juridique » et procédure d'évaluation de l'exposition réelle (Supabase RLS en 4 vérifications).
+- Section « Isolation entre clients (multi-tenant) » dans la checklist de sécurité ; détection de l'évaluation de personnes (art. 5.1.d, 22 conditionnel, 35).
+- Tableau « Sources et date de vérification » dans `references/rgpd-principles.md`.
+
+### Modifié
+- L'ancienne nature de constat « établie » devient « Constat technique avéré » ; « Principe RGPD » devient « Exigence concernée » (point d'attention, jamais manquement).
+- Classification selon l'exposition réelle : exposition non établie = risque potentiel.
+- Pseudonymisation (art. 4.5), art. 22 précisé, détermination de l'État membre, self-service présenté comme bonne pratique.
+- Exemple RGPD-001 refait avec un correctif SQL complet ; README et CONTRIBUTING mis à jour (tests sur les deux fixtures).
+
 ## [0.2.1] - 2026-10-27
 
 ### Corrigé
