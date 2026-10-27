@@ -14,7 +14,8 @@ Projet fictif contenant des défauts volontaires. Le rapport doit contenir au mo
 | Table privée sans RLS dans un schéma non exposé | `supabase/migrations/004_internal.sql` | Information | Information | art. 25, 32 (défense en profondeur) | Élevé |
 | Clé `service_role` exposée via `NEXT_PUBLIC_*` | `.env.example` | Constat technique avéré | Critique | art. 32 | Élevé |
 | Journalisation du corps de requête (e-mail inclus) | `src/lib/logger.ts` | Risque potentiel | Moyenne | art. 5.1.c, 32 | Moyen |
-| Profil utilisateur complet envoyé à un LLM tiers | `src/app/api/assistant/route.ts` | À vérifier (juridique/organisationnel) | Élevée | art. 5.1.c, 28, 44-49 | Élevé |
+| Profil complet (e-mail inclus) injecté dans le prompt | `src/app/api/assistant/route.ts` | Risque potentiel | Élevée | art. 5.1.c | Élevé |
+| Fournisseur LLM tiers : sous-traitance et transferts | `src/app/api/assistant/route.ts` | À vérifier (juridique/organisationnel) | Moyenne | art. 28, 44-49 | Faible |
 | Mesure d'audience chargée avant consentement | `src/app/layout.tsx` | Risque potentiel | Moyenne | ePrivacy art. 5.3 ; en France, art. 82 loi n° 78-17 | Moyen |
 | Case newsletter pré-cochée | `src/app/signup/page.tsx` | Constat technique avéré | Moyenne | art. 7 ; prospection électronique (droit national) | Élevé |
 | Aucun contrôle de l'âge à l'inscription | `src/app/signup/page.tsx` | À vérifier (juridique/organisationnel) | Moyenne | art. 8 (France : 15 ans) | Faible |

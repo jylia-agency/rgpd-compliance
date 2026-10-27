@@ -13,6 +13,12 @@ Projet fictif corrigé (mêmes fichiers que `demo-app-vulnerable`, défauts corr
 | Transferts hors UE non déterminables | `src/app/api/assistant/route.ts` | À vérifier (juridique/organisationnel) | Moyenne | art. 44-49 | Faible |
 | Information des personnes non déterminable | (hors code) | À vérifier (juridique/organisationnel) | Moyenne | art. 13-14 | Faible |
 
+## Éléments attendus sans constat
+
+- `select("*")` dans `api/account/export` : attendu, l'export porte sur toutes les données du compte connecté (art. 15, 20).
+- Clé `service_role` utilisée uniquement dans `src/lib/supabase-server.ts` (côté serveur) : attendu.
+- Durée de conservation des commandes (3 ans) : peut apparaître en « À vérifier » (durée à valider par le responsable de traitement), jamais en constat avéré.
+
 ## Comportements attendus
 
 - Aucun fichier du projet n'est modifié (lecture seule).

@@ -1,5 +1,5 @@
 -- FICHIER DE TEST FICTIF : données et code inventés, ne pas utiliser en production.
--- Table interne dans un schéma non exposé par l'API (voir config.toml : seul `public` est exposé).
+-- Table interne dans un schéma non exposé par l'API (voir config.toml : seul `public` est exposé) : schéma non exposé et privilèges révoqués.
 create schema if not exists private;
 
 create table private.internal_notes (
@@ -9,3 +9,4 @@ create table private.internal_notes (
   created_at timestamptz not null default now()
 );
 -- RLS non activée : l'accès passe uniquement par le serveur.
+revoke all on schema private from anon, authenticated;
