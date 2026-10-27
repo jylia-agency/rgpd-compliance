@@ -45,18 +45,29 @@ Pour chaque point : ✅ constaté OK · ❌ constat · ❓ non vérifiable. Fich
 ## Secrets et configuration
 - [ ] Aucun secret dans le dépôt/historique ; `.env` ignoré par git ; secrets gérés par coffre/variables CI
 - [ ] Pas de secret dans le bundle client (`NEXT_PUBLIC_*`, `VITE_*`, `REACT_APP_*`)
-- [ ] `DEBUG` désactivé en production ; dépendances à jour (audit `npm audit`/`pip-audit`, à lancer seulement sur autorisation)
+- [ ] `DEBUG` désactivé en production ; dépendances à jour (audits de dépendances tels que `npm audit` ou `pip-audit` : à lancer uniquement sur autorisation explicite de l'utilisateur)
 
 ## Journalisation et traçabilité
 - [ ] Journalisation des accès/actions sensibles (connexion, export, suppression, changement de droits, accès admin)
 - [ ] Logs sans mots de passe, jetons, données de santé ou payloads complets ; PII masquée/pseudonymisée
 - [ ] Logs horodatés, protégés contre altération, accès restreint, **durée de rétention définie**
-- [ ] Capacité de détecter et documenter une violation (art. 33)
+- [ ] Capacité de détecter et documenter toute violation, y compris non notifiée (art. 33.5)
 
 ## Droits des personnes
-- [ ] Accès/export (art. 15, 20) : format structuré, lisible par machine
+- [ ] Accès (art. 15) et export ; portabilité (art. 20) seulement si traitement fondé sur le consentement ou un contrat **et** automatisé : format structuré, lisible par machine
 - [ ] Rectification, effacement (y compris sous-traitants, sauvegardes, index de recherche, caches), opposition, retrait du consentement
-- [ ] Vérification d'identité avant exercice ; traçabilité des demandes ; délai d'un mois (art. 12.3)
+- [ ] Vérification d'identité proportionnée avant exercice ; traçabilité des demandes
+- [ ] Délai d'un mois, prorogeable de deux mois selon la complexité et le nombre de demandes (art. 12.3)
+- [ ] Un self-service n'est pas exigé : son absence est à signaler « à vérifier » (processus manuel possible)
+
+## Consentement, traceurs et prospection (voir `national-law.md`)
+- [ ] Traceurs et SDK : aucun dépôt/lecture avant consentement sauf strictement nécessaires (ePrivacy art. 5.3 ; France : art. 82 loi Informatique et Libertés)
+- [ ] Refus aussi simple que l'acceptation
+- [ ] Retrait du consentement possible à tout moment, aussi simplement que le don
+- [ ] Preuve du consentement conservée (horodatage, version du texte)
+- [ ] Mineurs : seuil d'âge national du consentement numérique (art. 8 ; France 15 ans) pris en compte si base consentement
+- [ ] Prospection électronique : opt-in préalable pour les particuliers selon le droit national, pas de case pré-cochée, désinscription dans chaque message
 
 ## Transferts internationaux (indices)
 - [ ] SDK/API tiers (analytics, e-mail, paiement, monitoring, IA, CDN, polices web) : localisation de l'hébergement et du fournisseur → **à vérifier** (art. 44–49)
+- [ ] Pour chaque transfert hors UE : décision d'adéquation ou garanties appropriées identifiées → **à vérifier**

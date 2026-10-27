@@ -5,7 +5,9 @@
 | **Date** | AAAA-MM-JJ |
 | **Version du rapport** | 1.0 |
 | **Commit / version analysé(e)** | [hash] |
-| **Auditeur** | Skill `rgpd-audit` (Claude Code) – analyse statique, lecture seule |
+| **Auditeur** | Skill `rgpd-audit` exécuté par [agent utilisé, ex. Claude Code, Codex], analyse statique, lecture seule |
+| **Rôle de l'organisation** | [responsable / sous-traitant], à confirmer |
+| **Droit national appliqué** | France par défaut, à confirmer |
 | **Périmètre** | [dépôts, dossiers, environnements analysés] |
 | **Hors périmètre / non consulté** | [production, données réelles, contrats, politique de confidentialité…] |
 
@@ -51,7 +53,10 @@ Voir [registre des traitements](processing-register.md) ou tableau résumé :
 
 | ID | Sujet | Question pour le responsable de traitement |
 |---|---|---|
+| | Rôle (responsable/sous-traitant) | |
 | | Base légale | |
+| | Information des personnes (art. 13-14) | |
+| | Traceurs et prospection (droit national) | |
 | | Contrats sous-traitants (art. 28) | |
 | | Transferts hors UE (art. 44-49) | |
 | | AIPD (art. 35) | |
@@ -65,7 +70,7 @@ Voir [plan de remédiation](remediation-plan.md).
 |---|---|---|---|---|
 
 ## 7. Limites
-Analyse statique du code fourni ; aucune exécution, aucun accès aux données réelles ; absence de constat ≠ conformité.
+Analyse statique du code fourni ; aucune exécution, aucun accès aux données réelles ; absence de constat ≠ conformité. Le règlement européen sur l'IA est hors périmètre ; si le projet est concerné par l'IA : évaluation au titre du règlement IA à réaliser séparément.
 
 ## 8. Sources
-[RGPD](https://eur-lex.europa.eu/eli/reg/2016/679/oj) · [CNIL](https://www.cnil.fr) · [CEPD](https://www.edpb.europa.eu)
+[RGPD](https://eur-lex.europa.eu/eli/reg/2016/679/oj) · [CNIL](https://www.cnil.fr) · [CEPD](https://www.edpb.europa.eu) · [Directive ePrivacy 2002/58/CE](https://eur-lex.europa.eu/eli/dir/2002/58/oj)

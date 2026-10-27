@@ -4,12 +4,14 @@ Merci de votre intérêt ! Ce Skill est un outil d'aide à l'audit technique, pa
 
 ## Règles
 
-1. **Sources officielles uniquement** : [CNIL](https://www.cnil.fr), [RGPD (EUR-Lex)](https://eur-lex.europa.eu/eli/reg/2016/679/oj), [CEPD/EDPB](https://www.edpb.europa.eu), documentation Anthropic sur les Skills.
+1. **Sources officielles uniquement** : [CNIL](https://www.cnil.fr), [RGPD (EUR-Lex)](https://eur-lex.europa.eu/eli/reg/2016/679/oj), [CEPD/EDPB](https://www.edpb.europa.eu), [directive ePrivacy](https://eur-lex.europa.eu/eli/dir/2002/58/oj), documentation officielle du format Agent Skills et des agents compatibles.
 2. **Ne jamais inventer de référence** (article, délibération, numéro de guide). En cas de doute, renvoyer vers le site officiel et marquer « à vérifier ».
 3. **Lecture seule par défaut** : aucune modification du Skill ne doit permettre d'écrire, supprimer ou transmettre des données sans autorisation explicite de l'utilisateur.
 4. **Pas de données réelles** dans les exemples : uniquement des données fictives (domaines `example.com`, secrets masqués).
 5. **Pas de formulation de certification** : un audit automatisé ne déclare jamais une application « conforme ».
-6. Conserver la distinction : *non-conformité établie* / *risque potentiel* / *vérification juridique ou organisationnelle*.
+6. Garder le skill générique (tout projet logiciel) et indépendant d'un agent particulier ; ne citer un agent que pour une différence concrète d'installation, d'invocation ou de lecture seule.
+7. Le règlement européen sur l'IA est hors périmètre : ne citer aucun de ses articles.
+8. Conserver la distinction : *non-conformité établie* / *risque potentiel* / *vérification juridique ou organisationnelle*.
 
 ## Processus
 
