@@ -24,4 +24,3 @@
 - [ ] L'avertissement final (ni certification ni avis juridique) est présent.
 
 ## Observations
-
