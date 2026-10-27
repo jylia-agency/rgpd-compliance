@@ -134,6 +134,8 @@ tests/fixtures/  Projets fictifs (vulnérable et sécurisé) pour tester le skil
 
 Voir [CONTRIBUTING.md](CONTRIBUTING.md). Historique : [CHANGELOG.md](CHANGELOG.md).
 
+Les versions sont publiées automatiquement à partir du CHANGELOG (voir CONTRIBUTING.md).
+
 ## Licence
 
 [MIT](LICENSE)

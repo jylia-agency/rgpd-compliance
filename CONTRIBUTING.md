@@ -20,6 +20,7 @@ Merci de votre intérêt ! Ce Skill est un outil d'aide à l'audit technique, pa
 - Mettez à jour `CHANGELOG.md`.
 - Testez systématiquement le skill sur les deux projets de `tests/fixtures/` (`demo-app-vulnerable` et `demo-app-secure`) et mettez à jour leur `EXPECTED.md` si le comportement attendu change.
 - Vérifiez : front matter de `SKILL.md` valide (`name`, `description`), liens fonctionnels, `SKILL.md` concis (< 500 lignes), détails déportés dans `references/`.
+- Publication : ajoutez une section `## [X.Y.Z] - AAAA-MM-JJ` en tête du CHANGELOG (sous `[Non publié]`). À la fusion dans `main`, le workflow `release.yml` crée automatiquement le tag `vX.Y.Z` et la release avec les notes correspondantes. Il peut aussi être lancé manuellement depuis l'onglet Actions.
 
 ## Licence
 

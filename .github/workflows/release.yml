@@ -1,0 +1,62 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - CHANGELOG.md
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Publier le tag et la release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          version_re='^## \[([^]]+)\] - [0-9]{4}-[0-9]{2}-[0-9]{2}[[:space:]]*$'
+          heading=$(grep -m1 -E '^## \[[^]]+\] - [0-9]{4}-[0-9]{2}-[0-9]{2}[[:space:]]*$' CHANGELOG.md || true)
+          if [ -z "$heading" ]; then
+            echo "::error::Aucun titre de version '## [X.Y.Z] - AAAA-MM-JJ' trouvé dans CHANGELOG.md."
+            exit 1
+          fi
+          [[ "$heading" =~ $version_re ]]
+          version="${BASH_REMATCH[1]}"
+
+          if ! [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::La version '$version' ne respecte pas SemVer (X.Y.Z, chiffres uniquement)."
+            exit 1
+          fi
+          tag="v${version}"
+
+          git fetch --tags origin
+          if git rev-parse -q --verify "refs/tags/${tag}" >/dev/null \
+            || git ls-remote --exit-code --tags origin "refs/tags/${tag}" >/dev/null 2>&1; then
+            echo "Tag ${tag} déjà publié, rien à faire."
+            exit 0
+          fi
+
+          notes=$(mktemp)
+          awk -v h="$heading" '
+            found && /^## \[/ { exit }
+            found { print }
+            $0 == h { found = 1 }
+          ' CHANGELOG.md > "$notes"
+
+          git tag -a "$tag" -m "$tag" "$GITHUB_SHA"
+          gh release create "$tag" --title "$tag" --notes-file "$notes" --target "$GITHUB_SHA"
+
+          {
+            echo "## Version publiée : ${tag}"
+            echo
+            echo "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases/tag/${tag}"
+          } >> "$GITHUB_STEP_SUMMARY"
