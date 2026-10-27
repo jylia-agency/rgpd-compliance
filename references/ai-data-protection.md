@@ -1,6 +1,8 @@
 # IA et protection des données personnelles
 
-Sources : [RGPD](https://eur-lex.europa.eu/eli/reg/2016/679/oj) (notamment art. 5, 6, 13-15, 22, 25, 28, 32, 35, 44-49), rubrique IA de la [CNIL](https://www.cnil.fr), travaux du [CEPD](https://www.edpb.europa.eu). Le règlement européen sur l'IA existe également ; ses obligations sont à vérifier sur EUR-Lex et ne sont pas auditées ici.
+Sources : [RGPD](https://eur-lex.europa.eu/eli/reg/2016/679/oj) (notamment art. 5, 6, 13-15, 22, 25, 28, 32, 35, 44-49), rubrique IA de la [CNIL](https://www.cnil.fr), travaux du [CEPD](https://www.edpb.europa.eu).
+
+> **Périmètre** : seul le RGPD appliqué à l'IA est couvert. Le règlement européen sur l'IA est hors périmètre : aucun article ni constat à ce titre. Si le projet est concerné, mentionner une seule fois, dans les limites du rapport : « évaluation au titre du règlement IA à réaliser séparément ».
 
 ## Points de détection
 
