@@ -1,0 +1,7 @@
+.DS_Store
+node_modules/
+*.log
+.env
+.env.*
+# Rapports d'audit générés localement (peuvent contenir des informations sensibles)
+rgpd-audit-output/
