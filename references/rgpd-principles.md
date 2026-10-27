@@ -18,6 +18,7 @@ Texte officiel : [Règlement (UE) 2016/679](https://eur-lex.europa.eu/eli/reg/20
 
 | Article | Sujet |
 |---|---|
+| 4.5 | Pseudonymisation : les données pseudonymisées restent des données personnelles |
 | 6 | Bases légales (consentement, contrat, obligation légale, intérêts vitaux, mission d'intérêt public, intérêt légitime) – **à confirmer par le responsable de traitement** |
 | 7 | Conditions du consentement (preuve, retrait aussi simple que le don) |
 | 8 | Consentement des enfants (services de la société de l'information) : 16 ans par défaut, abaissable jusqu'à 13 ans (France 15 ans, voir `national-law.md`) |
@@ -25,6 +26,7 @@ Texte officiel : [Règlement (UE) 2016/679](https://eur-lex.europa.eu/eli/reg/20
 | 12 | Modalités d'exercice des droits : délai d'un mois, prorogeable de deux mois selon la complexité et le nombre de demandes, avec information de la personne dans le premier mois (12.3) |
 | 13 / 14 | Information des personnes (collecte directe / indirecte) |
 | 15 à 22 | Droits : accès (15), rectification (16), effacement (17), limitation (18), notification (19), portabilité (20), opposition (21), décision automatisée (22) |
+| 22 (condition) | Décision fondée exclusivement sur un traitement automatisé et produisant des effets juridiques ou affectant la personne de manière significative ; un scoring avec intervention humaine réelle n'entre pas automatiquement dans ce cadre |
 | 20 (condition) | Portabilité : uniquement si traitement fondé sur le consentement ou un contrat **et** effectué par des moyens automatisés |
 | 24 | Responsabilité du responsable de traitement |
 | 25 | Protection des données dès la conception et par défaut |
@@ -58,3 +60,13 @@ Le règlement européen sur l'IA n'est pas couvert : aucun article ni constat à
 ## Règle de rédaction
 
 Cite un article uniquement s'il figure ci-dessus ou si tu l'as vérifié dans le texte officiel. Ne cite jamais un numéro de considérant, de délibération ou de lignes directrices dont tu n'es pas certain.
+
+## Sources et date de vérification
+
+| Source | URL | Date de vérification |
+|---|---|---|
+| RGPD | https://eur-lex.europa.eu/eli/reg/2016/679/oj | 2026-10-27 |
+| Directive ePrivacy 2002/58/CE | https://eur-lex.europa.eu/eli/dir/2002/58/oj | 2026-10-27 |
+| Loi n° 78-17 Informatique et Libertés | https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000886460 | à vérifier |
+
+Les liens ne sont ajoutés ou vérifiés que par les mainteneurs ; l'agent n'en ajoute ni n'en fabrique jamais.

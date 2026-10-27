@@ -13,6 +13,7 @@ Sources : [RGPD](https://eur-lex.europa.eu/eli/reg/2016/679/oj) (notamment art. 
 | Réutilisation pour entraînement/fine-tuning | Export de conversations, datasets | À vérifier (finalité, base légale, information) |
 | Journalisation des prompts/réponses | Logs, tables `messages`, outils d'observabilité | Risque potentiel (conservation, accès) |
 | Mémoire/RAG/embeddings | Bases vectorielles contenant des PII | Droit à l'effacement à propager aux vecteurs |
+| Évaluation de personnes par l'IA | Scoring, notation, classement, profilage de candidats, salariés, clients ou élèves | À vérifier (art. 5.1.d ; art. 22 conditionnel ; art. 35) |
 | Décision automatisée | Scoring, refus automatique, modération produisant des effets significatifs | À vérifier (art. 22) |
 | Données sensibles | Santé, opinions, mineurs en entrée | À vérifier (art. 9, 8), AIPD probable |
 | Injection de prompt / fuite | Contexte contenant des données d'autres utilisateurs, outils sans contrôle d'accès | Sécurité (art. 32) |
@@ -21,7 +22,7 @@ Sources : [RGPD](https://eur-lex.europa.eu/eli/reg/2016/679/oj) (notamment art. 
 
 ## Recommandations types
 
-- Pseudonymiser/anonymiser avant envoi ; n'envoyer que le nécessaire.
+- Pseudonymiser avant envoi ; n'envoyer que le nécessaire. Les données pseudonymisées restent des données personnelles (art. 4.5) ; seule une anonymisation effective les sort du RGPD. En cas de doute, les considérer comme personnelles.
 - Vérifier les conditions du fournisseur (non-utilisation pour entraînement, rétention, localisation, contrat de sous-traitance).
 - Contrôle d'accès appliqué **avant** la construction du contexte (RAG filtré par utilisateur).
 - Définir rétention des prompts/réponses ; permettre la suppression.

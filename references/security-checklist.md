@@ -30,9 +30,19 @@ Pour chaque point : ✅ constaté OK · ❌ constat · ❓ non vérifiable. Fich
 - [ ] Mécanisme de purge/archivage/anonymisation (jobs, TTL, `pg_cron`…)
 
 ## Supabase / PostgreSQL RLS
-- [ ] `ENABLE ROW LEVEL SECURITY` sur toute table du schéma exposé (`public`) contenant des données personnelles
+- [ ] Table de données personnelles sans `ENABLE ROW LEVEL SECURITY` : établir l'exposition réelle par **4 vérifications** avant de classer :
+  1. **Schéma exposé** : le schéma (`public` par défaut) est-il exposé par l'API auto-générée (PostgREST) ? (configuration Supabase, `config.toml`)
+  2. **Privilèges** : les rôles `anon` / `authenticated` disposent-ils de `GRANT` sur la table (ou de privilèges par défaut) ? Un `REVOKE` les retire-t-il ?
+  3. **Clé publique** : la clé publique (`anon`) est-elle utilisée côté client, ou la table n'est-elle accessible que côté serveur avec une clé privée ?
+  4. **Autres contrôles** : vue intermédiaire, fonction `SECURITY DEFINER`, proxy/API applicative, filtrage réseau qui empêchent l'accès direct ?
+- Classification selon l'exposition réelle :
+  - schéma exposé + privilèges accordés + aucun autre contrôle → **Constat technique avéré**, gravité **Critique** (rôle `anon`) ou **Élevée** (rôle `authenticated` seul) ;
+  - exposition non déterminable depuis le périmètre analysé → **Risque potentiel**, avec les vérifications à faire ;
+  - schéma non exposé ou privilèges révoqués → **Information**, avec recommandation de défense en profondeur (activer RLS malgré tout).
 - [ ] Politiques explicites par opération (SELECT/INSERT/UPDATE/DELETE) ; `UPDATE` avec `USING` **et** `WITH CHECK`
-- [ ] Pas de `USING (true)` / `WITH CHECK (true)` pour le rôle `anon` ou `authenticated` sur données personnelles
+- [ ] Couverture complète des opérations : SELECT, INSERT, UPDATE (`USING` + `WITH CHECK`) et DELETE couverts, sans opération laissée ouverte par une politique permissive
+- [ ] Pas de `USING (true)` / `WITH CHECK (true)` pour le rôle `anon` ou `authenticated` sur données personnelles (même logique de classification selon l'exposition réelle : schéma exposé + privilèges + pas d'autre contrôle → avéré, Critique pour `anon` / Élevée pour `authenticated` ; exposition non déterminable → risque potentiel ; non exposé ou révoqué → Information)
+- [ ] `service_role` et fonctions `SECURITY DEFINER` examinés **séparément** : ils contournent la RLS, donc leurs usages (serveur uniquement, contrôle d'accès applicatif, `search_path` fixé) se vérifient à part
 - [ ] Politiques fondées sur `auth.uid()` ; éviter `user_metadata` modifiable par l'utilisateur pour l'autorisation
 - [ ] Clé `service_role` jamais dans le client, ni dans `NEXT_PUBLIC_*`, ni dans le dépôt ; seule la clé `anon` est publique
 - [ ] Vues : `security_invoker = true` (sinon contournement possible de la RLS selon la version)
@@ -41,6 +51,12 @@ Pour chaque point : ✅ constaté OK · ❌ constat · ❓ non vérifiable. Fich
 - [ ] Tables/colonnes exposées via l'API auto-générée (PostgREST) volontairement
 - [ ] Tests des politiques avec différents rôles (anon, utilisateur A, utilisateur B)
 - Vérifier la documentation officielle Supabase pour les comportements dépendant de la version.
+
+## Isolation entre clients (multi-tenant)
+- [ ] Chaque table de données client porte un identifiant d'organisation/client (`org_id`, `tenant_id`…) non nul
+- [ ] Les politiques RLS (ou le filtrage serveur) vérifient l'appartenance à l'organisation via une table de membres, et non une valeur fournie par le client
+- [ ] Aucune lecture ou écriture inter-organisations possible (jointures, vues, fonctions, Storage, exports) ; pas de `USING (true)` sur les données d'une organisation
+- [ ] Tests avec deux organisations distinctes : un utilisateur de l'organisation A ne voit, ne modifie ni ne supprime aucune donnée de l'organisation B
 
 ## Secrets et configuration
 - [ ] Aucun secret dans le dépôt/historique ; `.env` ignoré par git ; secrets gérés par coffre/variables CI

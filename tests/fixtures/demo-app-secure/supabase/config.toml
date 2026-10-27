@@ -1,0 +1,4 @@
+# FICHIER DE TEST FICTIF : configuration inventée.
+[api]
+enabled = true
+schemas = ["public"]
